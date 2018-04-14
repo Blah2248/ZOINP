@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<script type="text/javascript">
+var request = new XMLHttpRequest();
+var SA = prompt("state abbrevation")
+var cy = prompt("city")
+request.open('GET', 'http://api.wunderground.com/api/7eaf302ee1ab2792/conditions/q/'+SA+'/'+cy+'.json', true);
+
+request.onload = function () {
+	// begin accessing JSON data here
+	var data = JSON.parse(this.response);
+
+	alert("It is "+String(data[0].temp_f)+"degrees outside")
+}
+
+request.send();
+</script>
+</body>
+</html>
